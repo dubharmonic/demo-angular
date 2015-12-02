@@ -1,0 +1,23 @@
+h2 User Collection
+table.table
+  thead
+    tr
+      th ID
+      th First Name
+      th Last Name
+      th Country
+      th Phone
+      th City
+      th Actions
+  tbody
+    tr(data-ng-repeat="user in users")
+      td {{user.id}}
+      td {{user.firstName}}
+      td {{user.lastName}}
+      td {{user.phone}}
+      td {{user.country}}
+      td {{user.city}}
+      td
+        a.btn.btn-primary(href="/#/users/{{user.id}}/edit") Edit
+p
+  a.btn.btn-primary(href="/#/users/new") New User
