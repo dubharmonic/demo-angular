@@ -1,3 +1,5 @@
+require 'style!css!less!../less/main.less'
+
 angular = require 'angular'
 
 router = require 'coffee!./router.coffee'
