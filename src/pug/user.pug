@@ -1,0 +1,19 @@
+h1 Edit User
+form(name="form" autocomplete="off" ng-submit="submitDisabled = true; saveUser()")
+  .form-group
+    label(for="first-name") First Name
+    input#first-name.form-control(type="text" ng-model="user.firstName" required)
+  .form-group
+    label(for="last-name") Last Name
+    input#last-name.form-control(type="text" ng-model="user.lastName" required)
+  .form-group
+    label(for="city") City
+    input#city.form-control(type="text" ng-model="user.city" required)
+  .form-group
+    label(for="country") Country
+    input#country.form-control(type="text" ng-model="user.country" required)
+  .form-group
+    label(for="phone") Phone
+    input#phone.form-control(type="text" ng-model="user.phone" required)
+  button.btn(type="submit" ng-disabled="submitDisabled || form.$invalid") Save
+  a.btn(ui-sref="users") Cancel

@@ -1,16 +1,15 @@
-require 'style!css!less!../less/main.less'
+require '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+require '../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
 
 angular = require 'angular'
 
-router = require 'coffee!./router.coffee'
-userService = require 'coffee!./services/user-service.coffee'
-
-MyApp = angular.module 'MyApp', [
+app = angular.module 'app', [
   require 'angular-resource'
   require 'angular-ui-router'
 ]
 
-MyApp.config router
-MyApp.service 'UserService', userService
+app.config require './routes.coffee'
 
-angular.bootstrap(document, ['MyApp'])
+app.service 'userService', require './services/users.coffee'
+
+angular.bootstrap document, ['app']

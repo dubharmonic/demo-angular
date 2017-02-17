@@ -1,0 +1,19 @@
+h1 Users
+table.table
+  thead
+    tr
+      th First Name
+      th Last Name
+      th City
+      th Country
+      th Phone
+      th &nbsp;
+  tbody
+    tr(ng-repeat="user in users")
+      td {{user.firstName}}
+      td {{user.lastName}}
+      td {{user.city}}
+      td {{user.country}}
+      td {{user.phone}}
+      td
+        a(ui-sref="user({id: user.id})") Edit {{user.id}}
