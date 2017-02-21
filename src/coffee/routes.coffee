@@ -1,6 +1,29 @@
-userService = require './services/users.coffee'
-
 module.exports = ($stateProvider, $urlRouterProvider) ->
+
+  $stateProvider.state 'albums',
+    cache: false
+    url: '/albums'
+    resolve:
+      albums: (albumService) ->
+        albumService.query().$promise
+    views:
+      main:
+        controller: require './controllers/albums.coffee'
+        template: require('../pug/albums.pug')()
+
+  $stateProvider.state 'album',
+    url: '/albums/:id'
+    resolve:
+      album: ($stateParams, albumService) ->
+        albumService.get
+          id: parseInt $stateParams.id
+        .$promise
+      formats: ($stateParams, formatService) ->
+        formatService.query().$promise
+    views:
+      main:
+        controller: require './controllers/album.coffee'
+        template: require('../pug/album.pug')()
 
   $stateProvider.state 'users',
     cache: false

@@ -1,0 +1,23 @@
+h1 Edit Album
+form(name="form" autocomplete="off" ng-submit="submitDisabled = true; saveAlbum()")
+  img.img-rounded(ng-src="{{album.cover}}")
+  .form-group
+    label(for="artist") Artist
+    input#artist.form-control(type="text" ng-model="album.artist" required)
+  .form-group
+    label(for="title") Title
+    input#title.form-control(type="text" ng-model="album.title" required)
+  .form-group
+    label(for="release") Release Date
+    input#release.form-control(type="date" ng-model="album.release" required)
+  .form-group
+    label(for="rating") Rating
+    input#rating.form-control(type="range" ng-model="album.rating" min="1" max="10" step="0.1" required)
+  .form-group
+    label(for="format-select") Format Select
+    select#format-select.form-control(ng-model="album.format" ng-options="format.id as format.label for format in formats" required)
+  .form-group(ng-repeat="format in formats")
+    label(for="format-radio") {{format.label}}
+    input#format-radio.form-control(type="radio" ng-model="album.format" ng-value="format.id")
+  button.btn(type="submit" ng-disabled="submitDisabled || form.$invalid") Save
+  a.btn(ui-sref="users") Cancel

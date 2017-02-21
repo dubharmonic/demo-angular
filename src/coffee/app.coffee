@@ -10,6 +10,8 @@ app = angular.module 'app', [
 
 app.config require './routes.coffee'
 
+app.service 'albumService', require './services/albums.coffee'
+app.service 'formatService', require './services/formats.coffee'
 app.service 'userService', require './services/users.coffee'
 
 angular.bootstrap document, ['app']

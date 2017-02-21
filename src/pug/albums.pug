@@ -1,0 +1,13 @@
+h1 Albums
+table.table
+  thead
+    tr
+      th Artist
+      th Title
+      th &nbsp;
+  tbody
+    tr(ng-repeat="album in albums")
+      td {{album.artist}}
+      td {{album.title}}
+      td
+        a(ui-sref="album({id: album.id})") Edit
